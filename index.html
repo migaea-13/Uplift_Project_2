@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <nav id="sidebar">
+    <ul>
+      <li>
+        <span class="logo">SubmeterWise</span>
+        <button onclick=toggleSidebar()  id="toggle-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm280-80h280v-560H480v560Z"/></svg>
+        </button>
+      </li>
+      <li class="active">
+        <a href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M320-240h60v-80h80v-60h-80v-80h-60v80h-80v60h80v80Zm200-30h200v-60H520v60Zm0-100h200v-60H520v60Zm44-152 56-56 56 56 42-42-56-58 56-56-42-42-56 56-56-56-42 42 56 56-56 58 42 42Zm-314-70h200v-60H250v60Zm-50 472q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+          <span>About</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="chat.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M320-520q17 0 28.5-11.5T360-560q0-17-11.5-28.5T320-600q-17 0-28.5 11.5T280-560q0 17 11.5 28.5T320-520Zm160 0q17 0 28.5-11.5T520-560q0-17-11.5-28.5T480-600q-17 0-28.5 11.5T440-560q0 17 11.5 28.5T480-520Zm160 0q17 0 28.5-11.5T680-560q0-17-11.5-28.5T640-600q-17 0-28.5 11.5T600-560q0 17 11.5 28.5T640-520ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
+          <span>Chat With AI</span>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <main>
+    <div class="container">
+      <h1>Electricity Bill Calculator</h1>
+    
+    <form id="billForm">
+        <label for="scenario">Select Calculation Scenario:</label>
+        <select id="scenario" required>
+            <option value="individual">Scenario 1: Separate Houses</option>
+            <option value="shared">Scenario 2: Household Cost Sharing</option>
+        </select>
+
+        <h3>Primary Meter</h3>
+        <label>Previous Reading:</label>
+        <input type="number" id="primaryPrev" required>
+
+        <label>Present Reading:</label>
+        <input type="number" id="primaryCurrent" required>
+
+        <label>Total Bill (₱):</label>
+        <input type="number" id="totalBill" required>
+
+        <h3>Submeters</h3>
+        <div id="submeterContainer"></div>
+
+        <button type="button" id="addSubmeter">Add Submeter</button>
+        <button type="submit">Calculate</button>
+        <button type="button" id="resetBtn">Reset</button>
+    </form>
+
+    <div id="pdfContent" style="display: none;"></div>
+
+
+    <div id="resultsDiv"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+   
+
+   
+
+    </div>
+  </main>
+  
+</body>
+</html>
